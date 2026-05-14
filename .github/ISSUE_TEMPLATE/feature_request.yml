@@ -1,0 +1,47 @@
+name: Feature request
+description: Propose a feature for the Trusyn AI platform
+labels: [enhancement]
+body:
+  - type: input
+    id: summary
+    attributes:
+      label: Feature summary
+      placeholder: What capability should be added?
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What user or operator problem does this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Include API/UI/architecture ideas where relevant
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Severity / impact
+      options:
+        - low
+        - medium
+        - high
+        - critical
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment and constraints
+      description: Mention platform constraints, dependencies, or compatibility requirements

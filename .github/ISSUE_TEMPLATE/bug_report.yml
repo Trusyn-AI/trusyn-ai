@@ -1,0 +1,61 @@
+name: Bug report
+description: Report a reproducible defect in the Trusyn AI platform
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please provide enough detail for maintainers to reproduce and triage quickly.
+  - type: input
+    id: summary
+    attributes:
+      label: Bug summary
+      placeholder: Short, clear description of the issue
+    validations:
+      required: true
+  - type: textarea
+    id: reproducibility
+    attributes:
+      label: Reproduction steps
+      description: Include precise steps and inputs
+      placeholder: |
+        1. Go to...
+        2. Call endpoint...
+        3. Observe...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity / impact
+      options:
+        - low
+        - medium
+        - high
+        - critical
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, browser, runtime versions, branch, deployment details
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / traces / screenshots
+      description: Include relevant logs and request IDs if available

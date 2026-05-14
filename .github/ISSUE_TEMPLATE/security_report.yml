@@ -1,0 +1,51 @@
+name: Security report
+description: Report a potential security vulnerability (preferred via private channel)
+labels: [security]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not share exploit details publicly. If this is an active vulnerability, use the private security contact process in SECURITY.md.
+  - type: input
+    id: summary
+    attributes:
+      label: Vulnerability summary
+    validations:
+      required: true
+  - type: textarea
+    id: reproducibility
+    attributes:
+      label: Reproduction details
+      description: Include controlled, minimal reproduction details
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected secure behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior / impact
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity / impact
+      options:
+        - low
+        - medium
+        - high
+        - critical
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Version, branch, deployment setup
+    validations:
+      required: true

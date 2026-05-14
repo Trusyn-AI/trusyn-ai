@@ -1,0 +1,27 @@
+import { apiRequest } from '../client';
+import { endpoints } from '../endpoints';
+import type { ThreatDto, ThreatInvestigationDto } from '../types/admin';
+import type { PaginatedResult, Severity } from '../types/common';
+
+export const threatService = {
+  list(params?: {
+    limit?: number;
+    offset?: number;
+    severity?: Severity;
+  }): Promise<PaginatedResult<ThreatDto>> {
+    return apiRequest<PaginatedResult<ThreatDto>>(endpoints.threats.base, {
+      method: 'GET',
+      query: params,
+    });
+  },
+
+  getById(threatId: string): Promise<ThreatDto> {
+    return apiRequest<ThreatDto>(endpoints.threats.byId(threatId), { method: 'GET' });
+  },
+
+  investigation(threatId: string): Promise<ThreatInvestigationDto> {
+    return apiRequest<ThreatInvestigationDto>(endpoints.threats.investigation(threatId), {
+      method: 'GET',
+    });
+  },
+};
