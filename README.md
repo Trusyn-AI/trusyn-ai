@@ -54,33 +54,49 @@ Trusyn AI operates as runtime governance middleware:
 - stream live operational events to dashboards
 
 ## Architecture
-
-```text
-Autonomous AI Agents
-        |
-        v
-Trusyn Gateway API
-        |
-        v
-Governance Orchestration
-  |- Threat Detector
-  |- Policy Engine
-  |- Risk Engine
-  |- Decision Engine
-  |- Gemini Intelligence Layer
-        |
-        v
-Decision + Audit + Event Stream
-        |
-        v
-Dashboards / Analytics / Exports
-```
-
+                    ┌───────────────────────┐
+                    │ Autonomous AI Agents  │
+                    └──────────┬────────────┘
+                               │
+                               ▼
+                    ┌───────────────────────┐
+                    │   Trusyn AI Gateway   │
+                    └──────────┬────────────┘
+                               │
+                               ▼
+        ┌────────────────────────────────────────────┐
+        │ Runtime Governance Engine                 │
+        │                                            │
+        │ • Threat Detection                         │
+        │ • Policy Evaluation                        │
+        │ • Risk Analysis                            │
+        │ • Gemini Intelligence                      │
+        │ • Explainability                           │
+        │ • Behavioral Analysis                      │
+        │ • Trust Scoring                            │
+        │ • Governance Decisions                     │
+        └────────────────────────────────────────────┘
+                               │
+              ┌────────────────┼────────────────┐
+              ▼                ▼                ▼
+           ALLOW            REVIEW            BLOCK
+                               │
+                               ▼
+        ┌────────────────────────────────────────────┐
+        │ Real-Time Observability Layer              │
+        │                                            │
+        │ • Threat Streams                           │
+        │ • WebSocket Events                         │
+        │ • Governance Analytics                     │
+        │ • Audit Logs                               │
+        │ • Intelligence Feeds                       │
+        │ • Trust Metrics                            │
+        └────────────────────────────────────────────┘
 See [Architecture Overview](./docs/ARCHITECTURE_OVERVIEW.md) for detailed component-level design.
 
 ## Gemini Usage Deep Dive
 
-Gemini is integrated as a core runtime intelligence layer in Trusyn AI, not as a UI-only add-on.
+Gemini is integrated as a core runtime intelligence layer in Trusyn AI.
 
 ### Where Gemini runs in the pipeline
 
